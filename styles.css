@@ -5,19 +5,89 @@
 }
 
 :root {
+  --btn-color: white;
+  --gaps: 3px;
 }
 
-#results {
-    margin: 0 auto;
-    width: 1200px;
+body {
+  font-family: inherit;
 }
 
 .search-bar {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .main-heading {
-    margin: auto;
-    width: max-content;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+}
+
+#buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.temp-btn {
+  margin: var(--gaps);
+  padding: 7px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.btn,
+.trending {
+  color: var(--btn-color);
+  padding: 7px 8px;
+  margin-right: var(--gaps);
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.btn {
+  background-color: #28a745;
+  margin-left: var(--gaps);
+}
+
+.trending {
+  background-color: #dc3545;
+}
+
+.divider {
+  border-top: 1px solid grey;
+  margin: 25px 0;
+}
+
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 1200px;
+}
+
+.gif-img {
+  margin: 8px;
+}
+
+.gif-box {
+  margin: 0.5rem;
+  display: inline-block;
+  border: 1px solid black;
+  height: auto;
+  width: auto;
+}
+
+.gif-box h6 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
 }
