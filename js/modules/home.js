@@ -23,4 +23,5 @@ export class Gifs extends Base {
   }
 }
 
-// data-animate="https://media1.giphy.com/media/hxTY2z486xU5ETzTPL/200.gif" data-still="https://media1.giphy.com/media/hxTY2z486xU5ETzTPL/200_s.gif" data-state="still" class="gif"
+// data-animate="https://media1.giphy.com/media/hxTY2z486xU5ETzTPL/200.gif"
+// data-still="https://media1.giphy.com/media/hxTY2z486xU5ETzTPL/200_s.gif" data-state="still" class="gif"

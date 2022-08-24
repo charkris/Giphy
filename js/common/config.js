@@ -1,15 +1,24 @@
 export class Config {
-    constructor(val){
-        this.val = val;
-    }
+  constructor(val) {
+    this.val = val;
+  }
 
-    getbaseUrl() {
-        return  `https://api.giphy.com/v1/gifs/${this.val}api_key=aFFKTuSMjd6j0wwjpFCPXZipQbcnw3vB&fmt=json`;
-    }
-    
+  getApiParam(value) {
+    let query;
+    let params = {
+      q: query,
+      limit: 10,
+      api_key: "aFFKTuSMjd6j0wwjpFCPXZipQbcnw3vB",
+      fmt: "json",
+    };
+    return params[value];
+  }
+
+  getBaseUrl() {
+    return `https://api.giphy.com/v1/gifs/${this.val}limit=${this.getApiParam('limit')}&api_key=${this.getApiParam('api_key')}&fmt=${this.getApiParam('fmt')}`;
+  }
+
 }
-
-
 
 /*
  var queryURL = "https://api.giphy.com/v1/gifs/search?";
@@ -41,4 +50,3 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?";
 
    
     */
-
