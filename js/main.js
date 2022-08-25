@@ -15,10 +15,12 @@ let gfs = new Gifs();
 gfs.renderBtns(config.topics);
 clickTopicButtons(config.topics);
 
+
 function clickTopicButtons(arr) {
   arr.map((item) => {
     document.getElementById(`${item}`).addEventListener("click", () => {
       let submitApi = new Config(`search?q=${item}&`);
+
       fetch(submitApi.getBaseUrl())
         .then((resp) => resp.json())
         .then((res) => {
@@ -32,6 +34,7 @@ function clickTopicButtons(arr) {
 
 // trending button logic
 btnTrending.addEventListener("click", () => {
+
   fetch(configTrends.getBaseUrl())
     .then((resp) => resp.json())
     .then((res) => {
@@ -48,13 +51,13 @@ btnSubmit.addEventListener("click", () => {
   if (searchField.value !== "") {
     if (config.topics.length > 5) {
       config.topics.shift();
-      config.topics.push(searchField.value);
+      config.topics.push(searchField.value.trim());
       newTopics = config.topics;
 
       gfs.renderBtns(newTopics);
       clickTopicButtons(config.topics);
     } else {
-      config.topics.push(searchField.value);
+      config.topics.push(searchField.value.trim());
       newTopics = config.topics;
 
       gfs.renderBtns(newTopics);
