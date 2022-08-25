@@ -18,15 +18,19 @@ export class Gifs extends Base {
       .join(" ");
   }
 
-  render() {
-    this.setContent("results", this._getGifs());
-  }
-
-  getTopicBtns(arr) {
+  _getTopicBtns(arr) {
     return arr
       .map((btn) => {
         return `<input type="button" class="topic-btn btn" value="${btn}" id="${btn}">`;
       })
       .join(" ");
+  }
+
+  render() {
+    this.setContent("results", this._getGifs());
+  }
+
+  renderBtns(arr) {
+    this.setContent("buttons", this._getTopicBtns(arr));
   }
 }
