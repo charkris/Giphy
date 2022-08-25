@@ -7,10 +7,7 @@
 :root {
   --btn-color: white;
   --gaps: 3px;
-}
-
-body {
-  font-family: inherit;
+  --radius: 0.2rem;
 }
 
 .search-bar {
@@ -28,33 +25,37 @@ body {
   color: inherit;
 }
 
+/* topic buttons */
+
 #buttons {
   display: flex;
   justify-content: center;
   margin-bottom: 5px;
 }
 
+/* btns after render */
 .temp-btn {
   margin: var(--gaps);
   padding: 7px;
   border: none;
   outline: none;
-  border-radius: 5px;
+  border-radius: var(--radius);
 }
 
+/* submit/trending buttons */
 .btn-subm,
 .trending {
   color: var(--btn-color);
   padding: 7px 8px;
   margin-right: var(--gaps);
-  border-radius: 5px;
+  border-radius: var(--radius);
   border: none;
   outline: none;
 }
 
 .btn-subm {
   background-color: #28a745;
-  margin: 0 10px;
+  margin: 0 5px;
 }
 
 .trending {
@@ -71,6 +72,11 @@ body {
   border-color: #bd2130;
 }
 
+.btn-topic-active {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(42, 189, 226, 0.778);
+}
+
 .btn-trend-active {
   background-color: #bd2130;
   border-color: #b21f2d;
@@ -83,11 +89,13 @@ body {
   box-shadow: 0 0 0 0.2rem rgb(40 167 69 / 50%);
 }
 
+/* search and gifs section divider */
 .divider {
   border-top: 1px solid grey;
   margin: 25px 0;
 }
 
+/* gifs wrapper after render */
 #results {
   display: flex;
   flex-wrap: wrap;
@@ -96,12 +104,8 @@ body {
   width: 1200px;
 }
 
-.gif-img {
-  margin: 8px;
-}
-
 .gif-box {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   display: inline-block;
   border: 1px solid black;
   height: auto;
@@ -112,4 +116,11 @@ body {
   font-weight: bold;
   text-align: center;
   font-size: 1rem;
+}
+
+/** Media Query **/
+@media screen and (max-width: 1200px) {
+  #results {
+    width: 90%;
+  }
 }

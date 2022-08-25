@@ -1,4 +1,5 @@
 import { Base } from "../common/base.js";
+import { Config } from "../common/config.js";
 
 export class Gifs extends Base {
   constructor(apiJSON) {
@@ -21,7 +22,13 @@ export class Gifs extends Base {
   render() {
     this.setContent("results", this._getGifs());
   }
-}
 
-// data-animate="https://media1.giphy.com/media/hxTY2z486xU5ETzTPL/200.gif"
-// data-still="https://media1.giphy.com/media/hxTY2z486xU5ETzTPL/200_s.gif" data-state="still" class="gif"
+  // removing buttons outline
+  removeButtonClass(btn, arr) {
+    for (let val of document.querySelectorAll(btn)) {
+      arr.forEach((btnClass) => {
+        val.classList.remove(btnClass);
+      });
+    }
+  }
+}
