@@ -10,11 +10,10 @@ export class Gifs extends Base {
   _getGifs() {
     return this.apiJSON
       .map((gif) => {
-        return `
-            <div class="gif-box">
-                <img src="${gif.images.fixed_height.url}">
-                <h6>Rating: ${gif.rating}</h6>
-            </div> `;
+        return `<div class="gif-box">
+                  <img src="${gif.images.fixed_height.url}">
+                  <h6>Rating: ${gif.rating}</h6>
+                </div> `;
       })
       .join(" ");
   }
@@ -23,12 +22,11 @@ export class Gifs extends Base {
     this.setContent("results", this._getGifs());
   }
 
-  // removing buttons outline
-  removeButtonClass(btn, arr) {
-    for (let val of document.querySelectorAll(btn)) {
-      arr.forEach((btnClass) => {
-        val.classList.remove(btnClass);
-      });
-    }
+  getTopicBtns(arr) {
+    return arr
+      .map((btn) => {
+        return `<input type="button" class="topic-btn btn" value="${btn}" id="${btn}">`;
+      })
+      .join(" ");
   }
 }

@@ -7,29 +7,25 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="title-search-bar">
-      <h1 class="main-heading">Giphy API Example</h1>
-      <div id="buttons">
-        <!-- <input type="button" class="temp-btn" value="Internet Cats" />
-        <input type="button" class="temp-btn" value="Meme's" />
-        <input type="button" class="temp-btn" value="Typing" />
-        <input type="button" class="temp-btn" value="Space" />
-        <input type="button" class="temp-btn" value="Rick and Morty" /> -->
-      </div>
-      <div class="search-bar">
-        <input type="text" name="query" id="user-search" />
-        <input id="submit" type="button" value="Submit" class="btn-subm btn" />
-        <input
-          type="button"
-          class="trending btn"
-          id="trendingId"
-          value="See what's trending"
-        />
-      </div>
-      <div class="divider"></div>
+    <div class="container">
+      <header>
+        <h1 class="main-heading">Giphy API Example</h1>
+      </header>
+      <main>
+        <section class="search-section">
+          <div id="buttons"></div>
+          <div class="search-bar">
+            <input type="text" name="query" id="user-search" />
+            <input id="submit" type="button" value="Submit" class="btn-subm btn" />
+            <input type="button" class="trending btn" id="trendingId" value="See what's trending"/>
+          </div>
+        </section>
+        <div class="divider"></div>
+        <section class="gifs-section">
+          <div id="results"></div>
+        </section>
+      </main>
     </div>
-    <div id="results"></div>
-
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

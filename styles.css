@@ -8,6 +8,7 @@
   --btn-color: white;
   --gaps: 3px;
   --radius: 0.2rem;
+  --no-border: none;
 }
 
 .search-bar {
@@ -34,12 +35,17 @@
 }
 
 /* btns after render */
-.temp-btn {
+.topic-btn {
   margin: var(--gaps);
   padding: 7px;
-  border: none;
-  outline: none;
+  border: var(--no-border);
+  outline: var(--no-border);
   border-radius: var(--radius);
+}
+
+.topic-btn:focus {
+  outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%); 
 }
 
 /* submit/trending buttons */
@@ -49,8 +55,8 @@
   padding: 7px 8px;
   margin-right: var(--gaps);
   border-radius: var(--radius);
-  border: none;
-  outline: none;
+  border: var(--no-border);
+  outline: var(--no-border);
 }
 
 .btn-subm {
@@ -72,26 +78,21 @@
   border-color: #bd2130;
 }
 
-.btn-topic-active {
-  border-color: #007bff;
-  box-shadow: 0 0 0 0.2rem rgba(42, 189, 226, 0.778);
-}
-
-.btn-trend-active {
+.trending:focus {
   background-color: #bd2130;
   border-color: #b21f2d;
   box-shadow: 0 0 0 0.2rem rgb(220 53 69 / 50%);
 }
 
-.btn-subm-active {
+.btn-subm:focus {
   background-color: #1e7e34;
   border-color: #1c7430;
   box-shadow: 0 0 0 0.2rem rgb(40 167 69 / 50%);
 }
 
-/* search and gifs section divider */
+/* devider of search and gifs section */
 .divider {
-  border-top: 1px solid grey;
+  border-top: 1px solid lightgray;
   margin: 25px 0;
 }
 

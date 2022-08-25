@@ -14,12 +14,12 @@ export class Config {
     return params[value];
   }
 
+  topics = ["Internet Cats", "Meme's", "Typing", "Space", "Rick and Morty"];
+
   getBaseUrl() {
     return `https://api.giphy.com/v1/gifs/${this.val}limit=${this.getApiParam(
       "limit"
     )}&api_key=${this.getApiParam("api_key")}&fmt=${this.getApiParam("fmt")}`;
   }
 
-  topics = ["Internet Cats", "Meme's", "Typing", "Space", "Rick and Morty"];
-  btnClassArr = ["btn-trend-active", "btn-topic-active", "btn-subm-active"];
 }
