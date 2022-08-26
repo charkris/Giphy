@@ -1,5 +1,4 @@
 import { Base } from "../common/base.js";
-import { Config } from "../common/config.js";
 
 export class Gifs extends Base {
   constructor(apiJSON) {
@@ -20,8 +19,8 @@ export class Gifs extends Base {
 
   _getTopicBtns(arr) {
     return arr
-      .map((btn) => {
-        return `<input type="button" class="topic-btn btn" value="${btn}" id="${btn}">`;
+      .map((btn, index) => {
+        return `<input type="button" class="topic-btn btn" value="${btn}" id="${btn}${index}">`;
       })
       .join(" ");
   }

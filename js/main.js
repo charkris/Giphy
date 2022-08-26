@@ -4,47 +4,44 @@ import { Gifs } from "./modules/home.js";
 let btnTrending = document.getElementById("trendingId");
 let btnSubmit = document.getElementById("submit");
 let searchField = document.getElementById("user-search");
-let trendingVal = "trending?";
-let newTopics;
-
-let configTrends = new Config(trendingVal);
+let query = "trending?";
+let configTrends = new Config(query);
 let config = new Config();
-let gfs = new Gifs();
 
-// set topic buttons content >
-gfs.renderBtns(config.topics);
-clickTopicButtons(config.topics);
-
-
-function clickTopicButtons(arr) {
-  arr.map((item) => {
-    document.getElementById(`${item}`).addEventListener("click", () => {
-      let submitApi = new Config(`search?q=${item}&`);
-
-      fetch(submitApi.getBaseUrl())
-        .then((resp) => resp.json())
-        .then((res) => {
-          let gifs = new Gifs(res.data);
-          gifs.render();
-        });
-    });
-  });
-}
-// button click logic // --> temp
-
-// trending button logic
-btnTrending.addEventListener("click", () => {
-
-  fetch(configTrends.getBaseUrl())
+// fetch api data
+function fetchGifs(urlPar) {
+  fetch(urlPar.getBaseUrl())
     .then((resp) => resp.json())
     .then((res) => {
       let gifs = new Gifs(res.data);
-      // console.log(gifs);
       gifs.render();
     });
+}
+
+// button click logic
+function clickTopicButtons(arr) {
+  arr.map((item, index) => {
+    document.getElementById(`${item}${index}`).addEventListener("click", () => {
+      let submitApi = new Config(`search?q=${item}&`);
+      fetchGifs(submitApi);
+    });
+  });
+}
+
+function displayTopicBtns(arr) {
+  let gif = new Gifs();
+  gif.renderBtns(arr);
+  clickTopicButtons(arr);
+}
+// set topic buttons content
+displayTopicBtns(config.topics);
+
+// trending button click action
+btnTrending.addEventListener("click", () => {
+  fetchGifs(configTrends);
 });
 
-// submit button logic
+// submit button click action
 btnSubmit.addEventListener("click", () => {
   let submitApi = new Config(`search?q=${searchField.value}&`);
   // temp
@@ -52,24 +49,11 @@ btnSubmit.addEventListener("click", () => {
     if (config.topics.length > 5) {
       config.topics.shift();
       config.topics.push(searchField.value.trim());
-      newTopics = config.topics;
-
-      gfs.renderBtns(newTopics);
-      clickTopicButtons(config.topics);
+      displayTopicBtns(config.topics);
     } else {
       config.topics.push(searchField.value.trim());
-      newTopics = config.topics;
-
-      gfs.renderBtns(newTopics);
-      clickTopicButtons(config.topics);
+      displayTopicBtns(config.topics);
     }
   }
-
-  fetch(submitApi.getBaseUrl())
-    .then((resp) => resp.json())
-    .then((res) => {
-      let gifs = new Gifs(res.data);
-      // console.log(gifs);
-      gifs.render();
-    });
+  fetchGifs(submitApi);
 });

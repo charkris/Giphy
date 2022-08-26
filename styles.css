@@ -48,6 +48,10 @@
     box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%); 
 }
 
+#user-search {
+  padding: 1px 2px;
+}
+
 /* submit/trending buttons */
 .btn-subm,
 .trending {
