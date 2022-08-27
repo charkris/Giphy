@@ -104,7 +104,7 @@
 #results {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 0 auto;
   width: 1200px;
 }
@@ -127,5 +127,6 @@
 @media screen and (max-width: 1200px) {
   #results {
     width: 90%;
+    margin: 0 10px;
   }
 }
