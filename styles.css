@@ -9,6 +9,8 @@
   --gaps: 3px;
   --radius: 0.2rem;
   --no-border: none;
+  --font: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  /* Arial, Helvetica, sans-serif; */
 }
 
 .search-bar {
@@ -17,7 +19,7 @@
 }
 
 .main-heading {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font);
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
@@ -35,32 +37,38 @@
 }
 
 /* btns after render */
-.topic-btn {
-  margin: var(--gaps);
-  padding: 7px;
-  border: var(--no-border);
-  outline: var(--no-border);
-  border-radius: var(--radius);
-}
 
 .topic-btn:focus {
   outline: 0;
-    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%); 
+  box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
 }
 
 #user-search {
   padding: 1px 2px;
+  font-family: var(--font);
+  font-size: inherit;
+  line-height: inherit;
 }
 
 /* submit/trending buttons */
+
 .btn-subm,
-.trending {
+.trending,
+.topic-btn {
   color: var(--btn-color);
-  padding: 7px 8px;
   margin-right: var(--gaps);
   border-radius: var(--radius);
   border: var(--no-border);
   outline: var(--no-border);
+  font-family: var(--font);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.topic-btn {
+  color: black;
+  margin: var(--gaps);
 }
 
 .btn-subm {
@@ -115,18 +123,20 @@
   border: 1px solid black;
   height: auto;
   width: auto;
+  margin: 10px;
 }
 
 .gif-box h6 {
+  font-family: var(--font);
   font-weight: bold;
   text-align: center;
   font-size: 1rem;
+  padding-bottom: 6px;
 }
 
 /** Media Query **/
 @media screen and (max-width: 1200px) {
   #results {
     width: 90%;
-    margin: 0 10px;
   }
 }

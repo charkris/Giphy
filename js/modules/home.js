@@ -8,9 +8,13 @@ export class Gifs extends Base {
 
   _getGifs() {
     return this.apiJSON
-      .map((gif) => {
+      .map((gif, index) => {
         return `<div class="gif-box">
-                  <img src="${gif.images.fixed_height.url}">
+                  <img onClick="changeAttribute(this.id)" id="img${index}" src="${gif.images.fixed_height_still.url}"
+                  data-animate="${gif.images.fixed_height.url}" 
+                  data-still="${gif.images.fixed_height_still.url}"
+                  data-state="still"
+                  class="gifs">
                   <h6>Rating: ${gif.rating}</h6>
                 </div> `;
       })

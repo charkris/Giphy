@@ -26,6 +26,19 @@
         </section>
       </main>
     </div>
+    <script type="text/javascript">
+      function changeAttribute(clicked_id) {
+        let btn = document.getElementById(clicked_id);
+        let state = btn.getAttribute("data-state");
+        if (state === "still") {
+          btn.setAttribute("data-state", "animate");
+          btn.setAttribute("src", btn.getAttribute("data-animate"));
+        } else {
+          btn.setAttribute("data-state", "still");
+          btn.setAttribute("src", btn.getAttribute("data-still"));
+        }
+      }
+    </script>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
