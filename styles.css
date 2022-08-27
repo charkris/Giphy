@@ -112,7 +112,7 @@
 #results {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   margin: 0 auto;
   width: 1200px;
 }
