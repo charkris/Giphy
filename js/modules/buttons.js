@@ -26,9 +26,4 @@ export class Button {
   showTrendings() {
     this.showRenderedBtns(config);
   }
-
-  topicButtonsDisplay(arr) {
-    let gif = new Gifs();
-    gif.renderBtns(arr);
-  }
 }

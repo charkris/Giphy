@@ -21,7 +21,6 @@ function clickTopicButtons(arr) {
 }
 
 function displayTopicBtns(arr) {
-  //button.topicButtonsDisplay(arr);
   gif.renderBtns(arr);
   clickTopicButtons(arr);
 }
